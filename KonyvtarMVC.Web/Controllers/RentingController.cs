@@ -9,7 +9,7 @@ using KonyvtarMVC.Bll.Abstraction.Services;
 namespace KonyvtarMVC.Web.Controllers
 {
     [Produces("application/json")]
-    [Route("api/Renting")]
+    [Route("api/renting")]
     public class RentingController : Controller
     {
         private readonly IRentingService rentingService;
@@ -19,12 +19,14 @@ namespace KonyvtarMVC.Web.Controllers
             this.rentingService = rentingService;
         }
 
+        [HttpPost("rent")]
         public async Task<IActionResult> Rent(string bookBarcode, int userCardNumber)
         {
             await rentingService.Rent(bookBarcode, userCardNumber);
             return Ok();
         }
 
+        [HttpPost("return")]
         public async Task<IActionResult> Return(string bookBarcode)
         {
             await rentingService.Return(bookBarcode);

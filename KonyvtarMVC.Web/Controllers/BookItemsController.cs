@@ -12,7 +12,7 @@ using KonyvtarMVC.Bll.Models;
 namespace KonyvtarMVC.Web.Controllers
 {
     [Produces("application/json")]
-    [Route("api/BookItems")]
+    [Route("api/bookItems")]
     public class BookItemsController : Controller
     {
         private readonly IBookItemService bookItemService;

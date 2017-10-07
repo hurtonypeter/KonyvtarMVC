@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace KonyvtarMVC.Web.Controllers
 {
     [Produces("application/json")]
-    [Route("api/Users")]
+    [Route("api/users")]
     public class UsersController : Controller
     {
         public UsersController()
@@ -16,6 +16,7 @@ namespace KonyvtarMVC.Web.Controllers
 
         }
 
+        [HttpGet]
         public async Task<IActionResult> List()
         {
             return Ok();
