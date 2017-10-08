@@ -20,6 +20,6 @@ namespace KonyvtarMVC.Dal.Entities
 
         public virtual Book Book { get; set; }
 
-        public virtual ICollection<Rent> Rents { get; set; }
+        public virtual ICollection<Rent> Rents { get; set; } = new HashSet<Rent>();
     }
 }

@@ -12,7 +12,7 @@ using System;
 namespace KonyvtarMVC.Dal.Migrations
 {
     [DbContext(typeof(BookStoreContext))]
-    [Migration("20170916173701_init")]
+    [Migration("20171008205254_init")]
     partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -49,7 +49,7 @@ namespace KonyvtarMVC.Dal.Migrations
 
                     b.Property<int>("Condition");
 
-                    b.Property<int>("State");
+                    b.Property<string>("State");
 
                     b.HasKey("Id");
 

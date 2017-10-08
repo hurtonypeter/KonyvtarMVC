@@ -22,6 +22,7 @@ namespace KonyvtarMVC_Web_Client
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors();
             services.AddMvc();
         }
 
@@ -41,6 +42,8 @@ namespace KonyvtarMVC_Web_Client
                 app.UseExceptionHandler("/Home/Error");
             }
 
+            app.UseCors(builder => 
+                builder.WithOrigins("http://localhost:5000"));
             app.UseStaticFiles();
 
             app.UseMvc(routes =>

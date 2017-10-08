@@ -15,7 +15,7 @@ namespace KonyvtarMVC.Web.Controllers
 {
     [Produces("application/json")]
     [Route("api/books")]
-    [Authorize]
+    //[Authorize]
     public class BooksController : Controller
     {
         private readonly IBookService bookService;
@@ -35,6 +35,26 @@ namespace KonyvtarMVC.Web.Controllers
                 Title = b.Title,
                 Isbn = b.Isbn
             }));
+        }
+
+        [HttpGet("{id}")]
+        public async Task<IActionResult> Details(string id)
+        {
+            var book = await bookService.GetBookByIdAsync(id);
+            return Ok(new BookDetailsViewModel
+            {
+                Id = book.Id,
+                Author = book.Author,
+                Title = book.Title,
+                Isbn = book.Isbn,
+                BookItems = book.BookItems.Select(i => new BookItemListViewModel
+                {
+                    Id = i.Id,
+                    Barcode = i.Barcode,
+                    State = i.State,
+                    Condition = i.Condition.ToString()
+                }).ToList()
+            });
         }
 
         [HttpPost]

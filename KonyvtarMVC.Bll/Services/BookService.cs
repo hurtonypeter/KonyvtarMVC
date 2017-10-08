@@ -24,7 +24,7 @@ namespace KonyvtarMVC.Bll.Services
 
         public async Task<Book> GetBookByIdAsync(string id)
         {
-            var book = await context.Books.SingleOrDefaultAsync(b => b.Id == id);
+            var book = await context.Books.Include(b => b.BookItems).SingleOrDefaultAsync(b => b.Id == id);
             return book ?? throw new BllException { ErrorCode = ErrorCode.NotFound };
         }
 

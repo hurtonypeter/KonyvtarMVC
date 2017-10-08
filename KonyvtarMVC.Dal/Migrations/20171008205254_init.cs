@@ -182,7 +182,7 @@ namespace KonyvtarMVC.Dal.Migrations
                     Barcode = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     BookId = table.Column<string>(type: "nvarchar(450)", nullable: true),
                     Condition = table.Column<int>(type: "int", nullable: false),
-                    State = table.Column<int>(type: "int", nullable: false)
+                    State = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {

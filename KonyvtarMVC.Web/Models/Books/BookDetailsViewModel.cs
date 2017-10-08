@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
+using System.Linq;
+using System.Threading.Tasks;
 
-namespace KonyvtarMVC.Dal.Entities
+namespace KonyvtarMVC.Web.Models.Books
 {
-    public class Book
+    public class BookDetailsViewModel
     {
         public string Id { get; set; }
 
@@ -14,6 +15,6 @@ namespace KonyvtarMVC.Dal.Entities
 
         public string Isbn { get; set; }
 
-        public virtual ICollection<BookItem> BookItems { get; set; } = new HashSet<BookItem>();
+        public List<BookItemListViewModel> BookItems { get; set; } = new List<BookItemListViewModel>();
     }
 }

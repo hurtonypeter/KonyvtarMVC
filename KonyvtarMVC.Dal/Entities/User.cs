@@ -19,6 +19,6 @@ namespace KonyvtarMVC.Dal.Entities
 
         public string MothersName { get; set; }
 
-        public virtual ICollection<Rent> Rents { get; set; }
+        public virtual ICollection<Rent> Rents { get; set; } = new HashSet<Rent>();
     }
 }

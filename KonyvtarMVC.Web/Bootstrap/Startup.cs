@@ -36,6 +36,9 @@ namespace KonyvtarMVC.Web.Bootstrap
             const string issuer = "http://localhost:5000";
             const string token = "tokentokentokentokentokentokentokentokentokentokentokentokentokentokentokentokentokentokentokentokentokentokentokentokentoken";
 
+            //services.AddDbContext<BookStoreContext>(options =>
+            //    options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"), 
+            //        opt => opt.MigrationsAssembly("KonyvtarMVC.Dal")));
             services.AddDbContext<BookStoreContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
@@ -68,7 +71,8 @@ namespace KonyvtarMVC.Web.Bootstrap
             });
 
             services.AddTransient<JwtSecurityTokenHandler>();
-            
+
+            services.AddCors();
             services.AddMvc();
 
             services.AddSwaggerGen(opt =>
@@ -107,6 +111,9 @@ namespace KonyvtarMVC.Web.Bootstrap
             {
                 app.UseExceptionHandler("/Home/Error");
             }
+
+            app.UseCors(b =>
+                b.WithOrigins("http://localhost:29633"));
 
             app.UseStaticFiles();
 

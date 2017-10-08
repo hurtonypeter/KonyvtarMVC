@@ -5,9 +5,9 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using KonyvtarMVC.Bll.Abstraction.Services;
-using KonyvtarMVC.Web.Models.BookItems;
 using KonyvtarMVC.Dal.Entities;
 using KonyvtarMVC.Bll.Models;
+using KonyvtarMVC.Web.Models.Books;
 
 namespace KonyvtarMVC.Web.Controllers
 {
@@ -29,7 +29,7 @@ namespace KonyvtarMVC.Web.Controllers
             {
                 Id = i.Id,
                 Barcode = i.Barcode,
-                Status = i.State
+                State = i.State
             }));
         }
 
@@ -38,6 +38,7 @@ namespace KonyvtarMVC.Web.Controllers
         {
             var bookItem = new BookItem
             {
+                BookId = model.BookId,
                 Barcode = model.Barcode,
                 Condition = model.Condition
             };

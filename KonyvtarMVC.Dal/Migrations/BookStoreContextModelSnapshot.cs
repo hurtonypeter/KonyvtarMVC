@@ -12,7 +12,7 @@ using System;
 namespace KonyvtarMVC.Dal.Migrations
 {
     [DbContext(typeof(BookStoreContext))]
-    partial class KonyvtarContextModelSnapshot : ModelSnapshot
+    partial class BookStoreContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
@@ -48,7 +48,7 @@ namespace KonyvtarMVC.Dal.Migrations
 
                     b.Property<int>("Condition");
 
-                    b.Property<int>("State");
+                    b.Property<string>("State");
 
                     b.HasKey("Id");
 

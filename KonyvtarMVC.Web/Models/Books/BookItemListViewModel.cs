@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace KonyvtarMVC.Web.Models.BookItems
+namespace KonyvtarMVC.Web.Models.Books
 {
     public class BookItemListViewModel
     {
@@ -11,6 +11,8 @@ namespace KonyvtarMVC.Web.Models.BookItems
 
         public string Barcode { get; set; }
 
-        public string Status { get; set; }
+        public string Condition { get; set; }
+
+        public string State { get; set; }
     }
 }
