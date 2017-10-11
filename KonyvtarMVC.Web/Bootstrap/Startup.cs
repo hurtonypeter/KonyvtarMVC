@@ -72,7 +72,14 @@ namespace KonyvtarMVC.Web.Bootstrap
 
             services.AddTransient<JwtSecurityTokenHandler>();
 
-            services.AddCors();
+            services.AddCors(options =>
+            {
+                options.AddPolicy("CorsPolicy",
+                    builder => builder.AllowAnyOrigin()
+                    .AllowAnyMethod()
+                    .AllowAnyHeader()
+                    .AllowCredentials());
+            });
             services.AddMvc();
 
             services.AddSwaggerGen(opt =>
@@ -112,8 +119,7 @@ namespace KonyvtarMVC.Web.Bootstrap
                 app.UseExceptionHandler("/Home/Error");
             }
 
-            app.UseCors(b =>
-                b.WithOrigins("http://localhost:29633"));
+            app.UseCors("CorsPolicy");
 
             app.UseStaticFiles();
 
