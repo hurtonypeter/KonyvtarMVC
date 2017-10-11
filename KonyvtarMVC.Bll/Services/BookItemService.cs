@@ -55,5 +55,11 @@ namespace KonyvtarMVC.Bll.Services
 
             await context.SaveChangesAsync();
         }
+
+        public Task<BookItem> GetBookItemById(string bookItemId)
+        {
+            return context.BookItems.SingleOrDefaultAsync(i => i.Id == bookItemId)
+                ?? throw new BllException { ErrorCode = ErrorCode.NotFound };
+        }
     }
 }

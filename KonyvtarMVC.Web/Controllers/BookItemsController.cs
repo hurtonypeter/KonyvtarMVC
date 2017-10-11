@@ -33,6 +33,12 @@ namespace KonyvtarMVC.Web.Controllers
             }));
         }
 
+        [HttpGet("{bookItemId}")]
+        public async Task<IActionResult> Get(string bookItemId)
+        {
+            return Ok(await bookItemService.GetBookItemById(bookItemId));
+        }
+
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] BookItemEditViewModel model)
         {

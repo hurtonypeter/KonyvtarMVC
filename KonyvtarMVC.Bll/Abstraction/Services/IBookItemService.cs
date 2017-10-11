@@ -11,6 +11,8 @@ namespace KonyvtarMVC.Bll.Abstraction.Services
     {
         Task<List<BookItem>> GetBookItemsByBookIdAsync(string bookId);
 
+        Task<BookItem> GetBookItemById(string bookItemId);
+
         Task CreateBookItemAsync(BookItem bookItem);
 
         Task EditBookItemAsync(string id, BookItemEditModel bookItem);

@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.SpaServices.Webpack;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.AspNetCore.NodeServices;
 
 namespace KonyvtarMVC_Web_Client
 {
@@ -24,6 +25,10 @@ namespace KonyvtarMVC_Web_Client
         {
             services.AddCors();
             services.AddMvc();
+            services.Configure<NodeServicesOptions>(c =>
+            {
+                c.InvocationTimeoutMilliseconds = 5000;
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

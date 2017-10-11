@@ -23,6 +23,7 @@
   <ItemGroup>
     <None Remove="ClientApp\app\app.routing.ts" />
     <None Remove="ClientApp\app\components\books\book.details.component.ts" />
+    <None Remove="ClientApp\app\components\books\bookitem.edit.component.ts" />
     <None Remove="ClientApp\app\modules\book\book.module.ts" />
   </ItemGroup>
 
@@ -31,6 +32,7 @@
     <TypeScriptCompile Include="ClientApp\app\components\books\book.details.component.ts" />
     <TypeScriptCompile Include="ClientApp\app\components\books\book.edit.component.ts" />
     <TypeScriptCompile Include="ClientApp\app\components\books\book.list.component.ts" />
+    <TypeScriptCompile Include="ClientApp\app\components\books\bookitem.edit.component.ts" />
     <TypeScriptCompile Include="ClientApp\app\guards\auth.ts" />
     <TypeScriptCompile Include="ClientApp\app\modules\book\book.module.ts" />
   </ItemGroup>
