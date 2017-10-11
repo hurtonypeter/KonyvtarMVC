@@ -17,6 +17,7 @@ import { BookListComponent } from './components/books/book.list.component';
 import { BookDetailsComponent } from './components/books/book.details.component';
 import { BookEditComponent } from './components/books/book.edit.component';
 import { BookItemEditComponent } from './components/books/bookitem.edit.component';
+import { BookItemDeleteComponent } from './components/books/bookitem.delete.component';
 
 @NgModule({
     declarations: [
@@ -28,7 +29,8 @@ import { BookItemEditComponent } from './components/books/bookitem.edit.componen
         BookListComponent,
         BookDetailsComponent,
         BookEditComponent,
-        BookItemEditComponent
+        BookItemEditComponent,
+        BookItemDeleteComponent
     ],
     imports: [
         CommonModule,
@@ -44,7 +46,7 @@ import { BookItemEditComponent } from './components/books/bookitem.edit.componen
 
             { path: 'books/:bookId/items/create', component: BookItemEditComponent, canActivate: [AuthGuard] },
             { path: 'books/:bookId/items/:itemId/edit', component: BookItemEditComponent, canActivate: [AuthGuard] },
-            { path: 'books/:bookId/items/:itemId/delete', component: HomeComponent, canActivate: [AuthGuard] },
+            { path: 'books/:bookId/items/:itemId/delete', component: BookItemDeleteComponent, canActivate: [AuthGuard] },
 
             { path: 'users', component: HomeComponent, canActivate: [AuthGuard] },
             { path: 'users/create', component: HomeComponent, canActivate: [AuthGuard] },
