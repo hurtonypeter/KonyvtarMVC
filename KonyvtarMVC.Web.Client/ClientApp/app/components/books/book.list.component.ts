@@ -1,5 +1,5 @@
 ﻿import { Component, Inject } from '@angular/core';
-import { Http } from '@angular/http';
+import { HttpClient } from '../../services/httpclient.service';
 
 @Component({
     selector: 'book-list',
@@ -8,7 +8,7 @@ import { Http } from '@angular/http';
 export class BookListComponent {
     books: any;
 
-    constructor(private http: Http, @Inject('BASE_URL') baseUrl: string) {
+    constructor(private http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
         http.get(baseUrl + 'api/books').subscribe(res => {
             this.books = res.json();
         }, error => console.error(error));

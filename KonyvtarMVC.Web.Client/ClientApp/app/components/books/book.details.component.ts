@@ -1,5 +1,5 @@
 ﻿import { Component, Inject, OnInit } from '@angular/core';
-import { Http } from '@angular/http';
+import { HttpClient } from '../../services/httpclient.service';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
 import 'rxjs/add/operator/switchMap';
@@ -12,7 +12,7 @@ export class BookDetailsComponent implements OnInit {
     book: any;
 
     constructor(
-        private http: Http,
+        private http: HttpClient,
         @Inject('BASE_URL') private baseUrl: string,
         private route: ActivatedRoute) {
         

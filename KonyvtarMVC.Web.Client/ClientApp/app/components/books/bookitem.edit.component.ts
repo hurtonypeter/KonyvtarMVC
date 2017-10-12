@@ -1,5 +1,5 @@
 ﻿import { Component, Inject, OnInit } from '@angular/core';
-import { Http, Headers } from '@angular/http';
+import { HttpClient } from '../../services/httpclient.service';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
 import 'rxjs/add/operator/switchMap';
@@ -13,7 +13,7 @@ export class BookItemEditComponent implements OnInit {
     bookItem: any;
 
     constructor(
-        private http: Http,
+        private http: HttpClient,
         @Inject('BASE_URL') private baseUrl: string,
         private route: ActivatedRoute,
         private router: Router) { }
