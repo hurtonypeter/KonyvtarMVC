@@ -12,7 +12,7 @@ using Microsoft.AspNetCore.Identity;
 namespace KonyvtarMVC.Web.Controllers
 {
     [Produces("application/json")]
-    [Route("api/users")]
+    [Route("api/members")]
     public class MembersController : Controller
     {
         private readonly IUserService userService;

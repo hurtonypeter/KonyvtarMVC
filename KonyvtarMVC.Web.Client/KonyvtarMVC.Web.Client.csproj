@@ -30,6 +30,7 @@
     <None Remove="ClientApp\app\components\books\book.details.component.ts" />
     <None Remove="ClientApp\app\components\books\bookitem.delete.component.ts" />
     <None Remove="ClientApp\app\components\books\bookitem.edit.component.ts" />
+    <None Remove="ClientApp\app\components\members\member.list.component.ts" />
     <None Remove="ClientApp\app\services\httpclient.service.ts" />
     <None Remove="ClientApp\app\services\security.service.ts" />
   </ItemGroup>
@@ -43,13 +44,10 @@
     <TypeScriptCompile Include="ClientApp\app\components\books\book.list.component.ts" />
     <TypeScriptCompile Include="ClientApp\app\components\books\bookitem.delete.component.ts" />
     <TypeScriptCompile Include="ClientApp\app\components\books\bookitem.edit.component.ts" />
+    <TypeScriptCompile Include="ClientApp\app\components\members\member.list.component.ts" />
     <TypeScriptCompile Include="ClientApp\app\guards\auth.ts" />
     <TypeScriptCompile Include="ClientApp\app\services\httpclient.service.ts" />
     <TypeScriptCompile Include="ClientApp\app\services\security.service.ts" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="ClientApp\app\components\users\" />
   </ItemGroup>
 
   <Target Name="DebugRunWebpack" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('wwwroot\dist') ">
