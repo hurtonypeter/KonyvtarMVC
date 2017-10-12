@@ -17,7 +17,8 @@
             <td>{{book.author}}</td>
             <td>{{book.title}}</td>
             <td>
-                <a [routerLink]="['/books/', book.id, 'edit']">Edit</a>
+                <a [routerLink]="['/books/', book.id, 'edit']">Edit</a> |
+                <a [routerLink]="['/books/', book.id, 'delete']">Delete</a>
             </td>
         </tr>
     </tbody>

@@ -14,6 +14,7 @@ import { NavMenuComponent } from './components/navmenu/navmenu.component';
 import { HomeComponent } from './components/home/home.component';
 import { BookListComponent } from './components/books/book.list.component';
 import { BookDetailsComponent } from './components/books/book.details.component';
+import { BookDeleteComponent } from './components/books/book.delete.component';
 import { BookEditComponent } from './components/books/book.edit.component';
 import { BookItemEditComponent } from './components/books/bookitem.edit.component';
 import { BookItemDeleteComponent } from './components/books/bookitem.delete.component';
@@ -25,6 +26,7 @@ import { BookItemDeleteComponent } from './components/books/bookitem.delete.comp
         HomeComponent,
         BookListComponent,
         BookDetailsComponent,
+        BookDeleteComponent,
         BookEditComponent,
         BookItemEditComponent,
         BookItemDeleteComponent
@@ -40,6 +42,7 @@ import { BookItemDeleteComponent } from './components/books/bookitem.delete.comp
             { path: 'books/create', component: BookEditComponent, canActivate: [AuthGuard] },
             { path: 'books/:bookId', component: BookDetailsComponent, canActivate: [AuthGuard] },
             { path: 'books/:bookId/edit', component: BookEditComponent, canActivate: [AuthGuard] },
+            { path: 'books/:bookId/delete', component: BookDeleteComponent, canActivate: [AuthGuard] },
 
             { path: 'books/:bookId/items/create', component: BookItemEditComponent, canActivate: [AuthGuard] },
             { path: 'books/:bookId/items/:itemId/edit', component: BookItemEditComponent, canActivate: [AuthGuard] },
