@@ -23,7 +23,8 @@ export class SecurityService {
             password: password
         }).subscribe(resp => {
             this.IsAuthorized = true;
-            this.UserToken = resp.text();
+            let token = resp.text();
+            this.UserToken = token.substring(1, token.length - 3);
 
             this.subj.next(true);
         }, err => {

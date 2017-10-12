@@ -18,6 +18,7 @@ import { BookDeleteComponent } from './components/books/book.delete.component';
 import { BookEditComponent } from './components/books/book.edit.component';
 import { BookItemEditComponent } from './components/books/bookitem.edit.component';
 import { BookItemDeleteComponent } from './components/books/bookitem.delete.component';
+import { LoginComponent } from './components/app/login.component';
 
 @NgModule({
     declarations: [
@@ -29,14 +30,17 @@ import { BookItemDeleteComponent } from './components/books/bookitem.delete.comp
         BookDeleteComponent,
         BookEditComponent,
         BookItemEditComponent,
-        BookItemDeleteComponent
+        BookItemDeleteComponent,
+        LoginComponent
     ],
     imports: [
         CommonModule,
         HttpModule,
         FormsModule,
         RouterModule.forRoot([
-            { path: 'login', component: HomeComponent },
+            { path: '', component: HomeComponent },
+
+            { path: 'login', component: LoginComponent },
 
             { path: 'books', component: BookListComponent, canActivate: [AuthGuard] },
             { path: 'books/create', component: BookEditComponent, canActivate: [AuthGuard] },

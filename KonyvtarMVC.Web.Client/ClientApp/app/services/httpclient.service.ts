@@ -1,7 +1,9 @@
 ﻿import { Injectable } from '@angular/core';
-import { Http, Headers } from '@angular/http';
+import { Http, Headers, Response } from '@angular/http';
 
 import { SecurityService } from './security.service';
+
+import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class HttpClient {
@@ -14,7 +16,7 @@ export class HttpClient {
         headers.append('Authorization', 'Bearer ' + this.securityService.UserToken);
     }
 
-    get(url: string) {
+    get(url: string): Observable<Response> {
         let headers = new Headers();
         this.appendAuthorizationHeader(headers);
 
@@ -23,7 +25,7 @@ export class HttpClient {
         });
     }
 
-    post(url: string, data: any) {
+    post(url: string, data: any): Observable<Response> {
         let headers = new Headers();
         this.appendAuthorizationHeader(headers);
 
@@ -32,7 +34,16 @@ export class HttpClient {
         });
     }
 
-    delete(url: string) {
+    put(url: string, data: any): Observable<Response> {
+        let headers = new Headers();
+        this.appendAuthorizationHeader(headers);
+
+        return this.http.put(url, data, {
+            headers: headers
+        });
+    }
+
+    delete(url: string): Observable<Response> {
         let headers = new Headers();
         this.appendAuthorizationHeader(headers);
 
