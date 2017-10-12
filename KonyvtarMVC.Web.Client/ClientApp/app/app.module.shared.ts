@@ -8,6 +8,7 @@ import { routing } from './app.routing';
 import { AuthGuard } from './guards/auth';
 
 import { HttpClient } from './services/httpclient.service';
+import { SecurityService } from './services/security.service';
 import { AppComponent } from './components/app/app.component';
 import { NavMenuComponent } from './components/navmenu/navmenu.component';
 import { HomeComponent } from './components/home/home.component';
@@ -57,7 +58,8 @@ import { BookItemDeleteComponent } from './components/books/bookitem.delete.comp
     ],
     providers: [
         AuthGuard,
-        HttpClient
+        HttpClient,
+        SecurityService
     ]
 })
 export class AppModuleShared {

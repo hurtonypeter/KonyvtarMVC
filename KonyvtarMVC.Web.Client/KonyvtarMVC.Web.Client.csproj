@@ -32,6 +32,7 @@
     <None Remove="ClientApp\app\components\books\bookitem.delete.component.ts" />
     <None Remove="ClientApp\app\components\books\bookitem.edit.component.ts" />
     <None Remove="ClientApp\app\services\httpclient.service.ts" />
+    <None Remove="ClientApp\app\services\security.service.ts" />
   </ItemGroup>
 
   <ItemGroup>
@@ -43,6 +44,7 @@
     <TypeScriptCompile Include="ClientApp\app\components\books\bookitem.edit.component.ts" />
     <TypeScriptCompile Include="ClientApp\app\guards\auth.ts" />
     <TypeScriptCompile Include="ClientApp\app\services\httpclient.service.ts" />
+    <TypeScriptCompile Include="ClientApp\app\services\security.service.ts" />
   </ItemGroup>
 
   <Target Name="DebugRunWebpack" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('wwwroot\dist') ">

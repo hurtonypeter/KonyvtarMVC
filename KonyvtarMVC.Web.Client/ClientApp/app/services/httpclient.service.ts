@@ -1,13 +1,17 @@
 ﻿import { Injectable } from '@angular/core';
 import { Http, Headers } from '@angular/http';
 
+import { SecurityService } from './security.service';
+
 @Injectable()
 export class HttpClient {
 
-    constructor(private http: Http) { }
+    constructor(
+        private http: Http,
+        private securityService: SecurityService) { }
 
     appendAuthorizationHeader(headers: Headers) {
-        headers.append('Authorization', 'Bearer ' + null);
+        headers.append('Authorization', 'Bearer ' + this.securityService.UserToken);
     }
 
     get(url: string) {
