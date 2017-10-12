@@ -28,6 +28,7 @@
 
   <ItemGroup>
     <None Remove="ClientApp\app\app.routing.ts" />
+    <None Remove="ClientApp\app\components\books\book.delete.component.ts" />
     <None Remove="ClientApp\app\components\books\book.details.component.ts" />
     <None Remove="ClientApp\app\components\books\bookitem.delete.component.ts" />
     <None Remove="ClientApp\app\components\books\bookitem.edit.component.ts" />
@@ -37,6 +38,7 @@
 
   <ItemGroup>
     <TypeScriptCompile Include="ClientApp\app\app.routing.ts" />
+    <TypeScriptCompile Include="ClientApp\app\components\books\book.delete.component.ts" />
     <TypeScriptCompile Include="ClientApp\app\components\books\book.details.component.ts" />
     <TypeScriptCompile Include="ClientApp\app\components\books\book.edit.component.ts" />
     <TypeScriptCompile Include="ClientApp\app\components\books\book.list.component.ts" />

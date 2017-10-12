@@ -2,4 +2,4 @@
 
 <p>Are u sure u want to delete this item?</p>
 
-<a (click)="deleteBookItem()" class="btn btn-danger">Delete</a> <a href="" class="btn btn-default">Cancel</a>
+<a (click)="deleteBookItem()" class="btn btn-danger">Delete</a> <a [routerLink]="['/books', bookId]" class="btn btn-default">Cancel</a>
