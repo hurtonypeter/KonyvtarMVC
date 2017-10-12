@@ -17,7 +17,13 @@
 
   <ItemGroup>
     <!-- Files not to publish (note that the 'dist' subfolders are re-added below) -->
+    <Compile Remove="ClientApp\app\components\rents\**" />
+    <Compile Remove="ClientApp\app\components\users\**" />
     <Content Remove="ClientApp\**" />
+    <EmbeddedResource Remove="ClientApp\app\components\rents\**" />
+    <EmbeddedResource Remove="ClientApp\app\components\users\**" />
+    <None Remove="ClientApp\app\components\rents\**" />
+    <None Remove="ClientApp\app\components\users\**" />
   </ItemGroup>
 
   <ItemGroup>
@@ -25,7 +31,6 @@
     <None Remove="ClientApp\app\components\books\book.details.component.ts" />
     <None Remove="ClientApp\app\components\books\bookitem.delete.component.ts" />
     <None Remove="ClientApp\app\components\books\bookitem.edit.component.ts" />
-    <None Remove="ClientApp\app\modules\book\book.module.ts" />
   </ItemGroup>
 
   <ItemGroup>
@@ -36,15 +41,9 @@
     <TypeScriptCompile Include="ClientApp\app\components\books\bookitem.delete.component.ts" />
     <TypeScriptCompile Include="ClientApp\app\components\books\bookitem.edit.component.ts" />
     <TypeScriptCompile Include="ClientApp\app\guards\auth.ts" />
-    <TypeScriptCompile Include="ClientApp\app\modules\book\book.module.ts" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="ClientApp\app\components\rents\" />
-    <Folder Include="ClientApp\app\components\users\" />
-    <Folder Include="ClientApp\app\modules\book\components\" />
-    <Folder Include="ClientApp\app\modules\member\" />
-    <Folder Include="ClientApp\app\modules\renting\" />
     <Folder Include="ClientApp\app\services\" />
   </ItemGroup>
 
