@@ -30,6 +30,8 @@
     <None Remove="ClientApp\app\components\books\book.details.component.ts" />
     <None Remove="ClientApp\app\components\books\bookitem.delete.component.ts" />
     <None Remove="ClientApp\app\components\books\bookitem.edit.component.ts" />
+    <None Remove="ClientApp\app\components\members\member.details.component.ts" />
+    <None Remove="ClientApp\app\components\members\member.edit.component.ts" />
     <None Remove="ClientApp\app\components\members\member.list.component.ts" />
     <None Remove="ClientApp\app\services\httpclient.service.ts" />
     <None Remove="ClientApp\app\services\security.service.ts" />
@@ -44,6 +46,8 @@
     <TypeScriptCompile Include="ClientApp\app\components\books\book.list.component.ts" />
     <TypeScriptCompile Include="ClientApp\app\components\books\bookitem.delete.component.ts" />
     <TypeScriptCompile Include="ClientApp\app\components\books\bookitem.edit.component.ts" />
+    <TypeScriptCompile Include="ClientApp\app\components\members\member.details.component.ts" />
+    <TypeScriptCompile Include="ClientApp\app\components\members\member.edit.component.ts" />
     <TypeScriptCompile Include="ClientApp\app\components\members\member.list.component.ts" />
     <TypeScriptCompile Include="ClientApp\app\guards\auth.ts" />
     <TypeScriptCompile Include="ClientApp\app\services\httpclient.service.ts" />

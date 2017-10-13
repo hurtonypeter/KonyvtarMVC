@@ -20,6 +20,8 @@ import { BookItemEditComponent } from './components/books/bookitem.edit.componen
 import { BookItemDeleteComponent } from './components/books/bookitem.delete.component';
 import { LoginComponent } from './components/app/login.component';
 import { MemberListComponent } from './components/members/member.list.component';
+import { MemberDetailsComponent } from './components/members/member.details.component';
+import { MemberEditComponent } from './components/members/member.edit.component';
 
 @NgModule({
     declarations: [
@@ -33,7 +35,9 @@ import { MemberListComponent } from './components/members/member.list.component'
         BookItemEditComponent,
         BookItemDeleteComponent,
         LoginComponent,
-        MemberListComponent
+        MemberListComponent,
+        MemberDetailsComponent,
+        MemberEditComponent
     ],
     imports: [
         CommonModule,
@@ -56,8 +60,8 @@ import { MemberListComponent } from './components/members/member.list.component'
 
             { path: 'members', component: MemberListComponent, canActivate: [AuthGuard] },
             { path: 'members/create', component: HomeComponent, canActivate: [AuthGuard] },
-            { path: 'members/:userId', component: HomeComponent, canActivate: [AuthGuard] },
-            { path: 'members/:userId/edit', component: HomeComponent, canActivate: [AuthGuard] },
+            { path: 'members/:userId', component: MemberDetailsComponent, canActivate: [AuthGuard] },
+            { path: 'members/:userId/edit', component: MemberEditComponent, canActivate: [AuthGuard] },
 
             { path: 'rent', component: HomeComponent, canActivate: [AuthGuard] },
 
