@@ -2,7 +2,7 @@
 
     <h1>{{member.name}}</h1>
 
-    <a [routerLink]="['/members', member.id, 'edit']">Edit</a>
+    <p><a [routerLink]="['/members', member.id, 'edit']">Edit</a></p>
 
     <p><strong>Card number:</strong> {{member.cardNumber}}</p>
     <p><strong>Address:</strong> {{member.address}}</p>
@@ -14,7 +14,8 @@
     <table class="table table-bordered">
         <thead>
             <tr>
-                <th>Book title</th>
+                <th>Book</th>
+                <th>Barcode</th>
                 <th>Start date</th>
                 <th>End date</th>
                 <th>Return date</th>
@@ -22,7 +23,8 @@
         </thead>
         <tbody>
             <tr *ngFor="let rent of member.rents">
-                <td></td>
+                <td>{{rent.author}}: {{rent.title}}</td>
+                <td>{{rent.barcode}}</td>
                 <td>{{rent.start}}</td>
                 <td>{{rent.end}}</td>
                 <td>{{rent.returnDate}}</td>

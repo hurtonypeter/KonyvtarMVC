@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using KonyvtarMVC.Bll.Abstraction.Services;
+using Newtonsoft.Json.Linq;
 
 namespace KonyvtarMVC.Web.Controllers
 {
@@ -20,16 +21,18 @@ namespace KonyvtarMVC.Web.Controllers
         }
 
         [HttpPost("rent")]
-        public async Task<IActionResult> Rent(string bookBarcode, int userCardNumber)
+        public async Task<IActionResult> Rent([FromBody]JObject model)
         {
-            await rentingService.Rent(bookBarcode, userCardNumber);
+            await rentingService.Rent(
+                model["bookBarcode"].ToString(), 
+                int.Parse(model["userCardNumber"].ToString()));
             return Ok();
         }
 
         [HttpPost("return")]
-        public async Task<IActionResult> Return(string bookBarcode)
+        public async Task<IActionResult> Return([FromBody]JObject model)
         {
-            await rentingService.Return(bookBarcode);
+            await rentingService.Return(model["bookBarcode"].ToString());
             return Ok();
         }
     }

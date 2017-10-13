@@ -22,6 +22,7 @@ import { LoginComponent } from './components/app/login.component';
 import { MemberListComponent } from './components/members/member.list.component';
 import { MemberDetailsComponent } from './components/members/member.details.component';
 import { MemberEditComponent } from './components/members/member.edit.component';
+import { RentComponent } from './components/rents/rent.component';
 
 @NgModule({
     declarations: [
@@ -37,7 +38,8 @@ import { MemberEditComponent } from './components/members/member.edit.component'
         LoginComponent,
         MemberListComponent,
         MemberDetailsComponent,
-        MemberEditComponent
+        MemberEditComponent,
+        RentComponent
     ],
     imports: [
         CommonModule,
@@ -63,7 +65,7 @@ import { MemberEditComponent } from './components/members/member.edit.component'
             { path: 'members/:userId', component: MemberDetailsComponent, canActivate: [AuthGuard] },
             { path: 'members/:userId/edit', component: MemberEditComponent, canActivate: [AuthGuard] },
 
-            { path: 'rent', component: HomeComponent, canActivate: [AuthGuard] },
+            { path: 'rent', component: RentComponent, canActivate: [AuthGuard] },
 
             // otherwise redirect to home
             { path: '**', redirectTo: '' }

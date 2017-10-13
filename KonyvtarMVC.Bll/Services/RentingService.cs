@@ -34,6 +34,7 @@ namespace KonyvtarMVC.Bll.Services
             {
                 Id = Guid.NewGuid().ToString(),
                 Start = DateTime.Now,
+                End = DateTime.Now.AddDays(14),
                 BookItemId = bookItem.Id,
                 UserId = user.Id
             };
@@ -44,19 +45,21 @@ namespace KonyvtarMVC.Bll.Services
 
         public async Task Return(string bookBarcode)
         {
-            var bookItem = await context.BookItems.SingleOrDefaultAsync(i => i.Barcode == bookBarcode);
+            var bookItem = await context.BookItems
+                .Include(i => i.Rents)
+                .SingleOrDefaultAsync(i => i.Barcode == bookBarcode);
             if (bookItem == null)
             {
                 throw new BllException { ErrorCode = ErrorCode.BadRequest, Source = nameof(bookBarcode) };
             }
 
-            var lastRent = bookItem.Rents.SingleOrDefault(r => r.End == null);
+            var lastRent = bookItem.Rents.SingleOrDefault(r => r.ReturnDate == null);
             if (lastRent == null)
             {
                 throw new BllException { ErrorCode = ErrorCode.BadRequest };
             }
 
-            lastRent.End = DateTime.Now;
+            lastRent.ReturnDate = DateTime.Now;
 
             await context.SaveChangesAsync();
         }

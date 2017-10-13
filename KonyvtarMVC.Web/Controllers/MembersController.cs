@@ -31,8 +31,26 @@ namespace KonyvtarMVC.Web.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> Details(string id)
         {
-            var book = await userService.GetByIdAsync(id);
-            return Ok(book);
+            var member = await userService.GetByIdAsync(id);
+            var vm = new MemberDetailsViewModel
+            {
+                Address = member.Address,
+                BirthDate = member.BirthDate,
+                BirthPlace = member.BirthPlace,
+                CardNumber = member.CardNumber,
+                MothersName = member.MothersName,
+                Name = member.Name,
+                Rents = member.Rents.Select(r => new MemberRentListViewModel
+                {
+                    Author = r.BookItem.Book.Author,
+                    Title = r.BookItem.Book.Title,
+                    Barcode = r.BookItem.Barcode,
+                    End = r.End,
+                    Start = r.Start,
+                    ReturnDate = r.ReturnDate
+                }).ToList()
+            };
+            return Ok(vm);
         }
 
         [HttpPost]

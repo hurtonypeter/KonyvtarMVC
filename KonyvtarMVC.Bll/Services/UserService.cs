@@ -5,6 +5,7 @@ using KonyvtarMVC.Dal.Entities;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -23,7 +24,11 @@ namespace KonyvtarMVC.Bll.Services
 
         public async Task<User> GetByIdAsync(string id)
         {
-            var user = await context.Users.SingleOrDefaultAsync(u => u.Id == id);
+            var user = await context.Users
+                .Include(u => u.Rents)
+                    .ThenInclude(r => r.BookItem)
+                    .ThenInclude(bi => bi.Book)
+                .SingleOrDefaultAsync(u => u.Id == id);
             return user ?? throw new BllException { ErrorCode = ErrorCode.NotFound };
         }
 
